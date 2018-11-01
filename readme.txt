@@ -1,1 +1,1 @@
-hello  code  design
+php 设计模式以及部分特性。
