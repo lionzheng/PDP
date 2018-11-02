@@ -85,6 +85,20 @@ class GreenShapeDecortor extends ShapeDecorator
     }
 
 }
+class BlueShapeDecortor extends ShapeDecorator
+{
+    function __construct(Shape $decoratedShape)
+    {
+        $this->decoratedShape = $decoratedShape;
+    }
+
+    public function draw()
+    {
+        parent::draw();
+        printf("Border Color: Blue\n");
+    }
+
+}
 
 function main()
 {
@@ -102,6 +116,7 @@ function main()
     //画矩初始化，搭配颜色装饰画红色，接着再装饰一个绿色。
     $shapeDecortor = new RedShapeDecortor($rectangle);
     $shapeDecortor = new GreenShapeDecortor($shapeDecortor);
+    $shapeDecortor = new BlueShapeDecortor($shapeDecortor);
     try {
         $shapeDecortor->draw();
     } catch (Exception $e) {
